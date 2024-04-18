@@ -1,5 +1,3 @@
-# budget-app-web.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,27 +13,19 @@ spec:
         app: budget-app-web
     spec:
       containers:
-      - name: budget-app-web
-        image: krishnavamshi933/budget-app-web:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: DB_HOST
-          value: "postgres-service"
-        - name: DB_USER
-          value: "Budgy"
-        - name: DB_PASSWORD
-          value: "Budgy"
-        - name: DB_NAME
-          value: "budgy_development"
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-
+        - name: budget-app-web
+          image: krishnavamshi933/budget-app-web:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_HOST
+              value: "postgres-service"
+            - name: DB_USER
+              value: "Budgy"
+            - name: DB_PASSWORD
+              value: "Budgy"
+            - name: DB_NAME
+              value: "budgy_development"
 ---
 apiVersion: v1
 kind: Service
@@ -45,7 +35,6 @@ spec:
   selector:
     app: budget-app-web
   ports:
-  - protocol: TCP
-    port: 3000
-    targetPort: 3000
-  type: NodePort
+    - protocol: TCP
+      port: 3000  # Use a specific port for NodePort
+      targetPort: 3000
