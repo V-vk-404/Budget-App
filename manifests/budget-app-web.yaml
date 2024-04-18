@@ -94,10 +94,11 @@ spec:
     - host: 165.22.223.90
       http:
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               service:
                 name: budget-app-web-service
                 port:
-                  number: 80
-            path: /
-            pathType: Prefix
+                  number: 3000
+
