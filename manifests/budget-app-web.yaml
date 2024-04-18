@@ -89,8 +89,7 @@ metadata:
   name: budget-app-web-ingress
 spec:
   rules:
-  - host: http://165.22.223.90:30080  # Replace with your actual hostname
-    http:
+  - http:
       paths:
       - pathType: Prefix
         path: "/"
