@@ -85,16 +85,19 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  labels:
+    app.kubernetes.io/instance: budget-app
   name: budget-app-web-ingress
+  namespace: default
 spec:
   rules:
-  - host: 165.22.223.90  # Replace with your actual hostname
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: budget-app-web-service
-            port:
-              number: 80
+    - host: 165.22.223.90
+      http:
+        paths:
+          - backend:
+              service:
+                name: budget-app-web-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
