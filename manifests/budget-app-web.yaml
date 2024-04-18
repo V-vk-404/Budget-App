@@ -78,8 +78,9 @@ spec:
     app: budget-app-web
   ports:
     - protocol: TCP
-      port: 80
+      port: 3000
       targetPort: 3000
+      nodePort: 30080
   type: NodePort
 ---
 apiVersion: networking.k8s.io/v1
@@ -88,8 +89,7 @@ metadata:
   name: budget-app-web-ingress
 spec:
   rules:
-  - host: myapp.165.22.223.90.nip.io  # Replace with your actual hostname
-    http:
+  - http:
       paths:
       - pathType: Prefix
         path: "/"
@@ -97,5 +97,5 @@ spec:
           service:
             name: budget-app-web-service
             port:
-              number: 80
+              number: 3000
 
