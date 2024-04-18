@@ -88,7 +88,7 @@ metadata:
   name: budget-app-web-ingress
 spec:
   rules:
-  - host: budget-app.example.com  # Replace with your actual hostname
+  - host: 165.22.223.90  # Replace with your actual hostname
     http:
       paths:
       - pathType: Prefix
