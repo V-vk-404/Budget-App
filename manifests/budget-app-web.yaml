@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:latest     
+          image: postgres:14.1     
           env:
             - name: POSTGRES_DB
               value: budgy_development
@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
         - name: budget-app-web
-          image: krishnavamshi933/budget-app-web:latest
+          image: jarvis99/budget-app_web:latest
           ports:
             - containerPort: 3000
           env:
