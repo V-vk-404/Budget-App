@@ -78,7 +78,7 @@ spec:
     app: budget-app-web
   ports:
     - protocol: TCP
-      port: 80
+      port: 3000
       targetPort: 3000
       nodePort: 30080
   type: NodePort
@@ -97,4 +97,4 @@ spec:
           service:
             name: budget-app-web-service
             port:
-              number: 80
+              number: 3000
